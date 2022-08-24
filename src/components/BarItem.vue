@@ -23,6 +23,7 @@ export default {
     heightBarStyle: function () {
       return {
         height: `${this.occurences * 10}px`,
+        transition: "height 0.8s",
       };
     },
   },
@@ -33,13 +34,17 @@ export default {
 .barItem {
   display: inline-flex;
   flex-direction: column;
-  margin-left: 15px;
-  margin-right: 15px;
   .bar {
     color: white;
-    background-color: blue;
-    height: 150px;
-    width: 25px;
+    background: var(--primary-color);
+    background: linear-gradient(
+      100deg,
+      var(--primary-color),
+      5%,
+      var(--secondary-color) 100%
+    );
+    height: 100px;
+    width: 2.5rem;
   }
 }
 </style>
