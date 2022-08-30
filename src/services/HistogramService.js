@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+/**
+ * @param {number} valueToIncrement 
+ * @param {number} step 
+ * @returns {number}
+ */
 function increaseOccurenceOf(valueToIncrement, step = 1) {
     return valueToIncrement += step
 }
@@ -12,12 +17,13 @@ function increaseOccurenceOf(valueToIncrement, step = 1) {
 export function getOcurrenceNumber(numberArray) {
     const ocurrencesNumber = new Map()
     for (const number of numberArray) {
-        if (ocurrencesNumber.has(number)) {
-            const currentValue = ocurrencesNumber.get(number)
+        const stringInt = number.toString()
+        if (ocurrencesNumber.has(stringInt)) {
+            const currentValue = ocurrencesNumber.get(stringInt)
             const newValue = increaseOccurenceOf(currentValue)
-            ocurrencesNumber.set(number, newValue)
+            ocurrencesNumber.set(stringInt, newValue)
         } else {
-            ocurrencesNumber.set(number, 1)
+            ocurrencesNumber.set(stringInt, 1)
         }
     }
 
