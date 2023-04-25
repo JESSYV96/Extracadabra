@@ -12,6 +12,7 @@ const Template = (_, { argTypes }) => ({
 });
 
 export const DefaultHistogram = Template.bind({});
+
 DefaultHistogram.args = {
     numberList: [
         "9", "1", "9", "2", "3", "4",

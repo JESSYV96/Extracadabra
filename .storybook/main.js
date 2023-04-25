@@ -15,6 +15,7 @@ module.exports = {
   "core": {
     "builder": "@storybook/builder-webpack5"
   },
+  // Useful in my case ???
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
