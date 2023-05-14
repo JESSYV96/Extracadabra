@@ -6,27 +6,34 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import BarItem from "./BarItem.vue";
 import { getOcurrenceNumber } from "../services/HistogramService";
+import { computed } from "vue";
 
-export default {
-  name: "Histogram",
-  props: {
-    numberList: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  components: {
-    BarItem,
-  },
-  computed: {
-    occurencesNumber: function () {
-      return [...getOcurrenceNumber(this.numberList)].sort();
-    },
-  },
-};
+const props = defineProps<{
+  numberList: string[]
+}>()
+
+const occurencesNumber = computed(() => [...getOcurrenceNumber(props.numberList)].sort())
+
+// export default {
+//   name: "Histogram",
+//   components: {
+//     BarItem,
+//   },
+//   props: {
+//     numberList: {
+//       type: Array,
+//       default: () => [],
+//     },
+//   },
+//   computed: {
+//     occurencesNumber: function () {
+//       return [...getOcurrenceNumber(this.numberList)].sort();
+//     },
+//   },
+// };
 </script>
 
 <style lang="scss" scoped>
